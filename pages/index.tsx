@@ -1,11 +1,31 @@
 import IndexPage from 'components/IndexPage'
 import PreviewIndexPage from 'components/PreviewIndexPage'
+import Tabs from 'components/Tabs'
 import { readToken } from 'lib/sanity.api'
 import { getAllPosts, getClient, getSettings } from 'lib/sanity.client'
 import { Post, Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import type { SharedPageProps } from 'pages/_app'
-
+import {
+  ArrowUp,
+  Facebook,
+  Instagram,
+  Link2,
+  Linkedin,
+  LinkIcon,
+  MoveRight,
+  Play,
+  Twitter,
+  Youtube,
+} from 'lucide-react'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { Navbar } from 'components/Navbar'
+import { HeroSection } from 'components/HeroSection'
+import { KeyCapabilitiesSection } from 'components/KeyCapabilitiesSection'
+import { MainFeatureSection } from 'components/MainFeatureSection'
+import { Footer } from 'components/Footer'
+import { ScrollToTopButton } from 'components/ScrollToTopButton'
 interface PageProps extends SharedPageProps {
   posts: Post[]
   settings: Settings
@@ -22,24 +42,15 @@ export default function Page(props: PageProps) {
     return <PreviewIndexPage posts={posts} settings={settings} />
   }
 
-  return <IndexPage posts={posts} settings={settings} />
-}
-
-export const getStaticProps: GetStaticProps<PageProps, Query> = async (ctx) => {
-  const { draftMode = false } = ctx
-  const client = getClient(draftMode ? { token: readToken } : undefined)
-
-  const [settings, posts = []] = await Promise.all([
-    getSettings(client),
-    getAllPosts(client),
-  ])
-
-  return {
-    props: {
-      posts,
-      settings,
-      draftMode,
-      token: draftMode ? readToken : '',
-    },
-  }
+  return (
+    <div className="bg-[#09090B] px-24">
+      <Navbar />
+      <HeroSection />
+      <KeyCapabilitiesSection />
+      <MainFeatureSection />
+      <ScrollToTopButton />
+      <Footer />
+      {/* <IndexPage posts={posts} settings={settings} /> */}
+    </div>
+  )
 }
