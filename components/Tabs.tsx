@@ -5,15 +5,15 @@ const Tabs = ({ tabs }) => {
 
   return (
     <div className="w-full mx-auto">
-      <div className="flex justify-center gap-8 py-6">
+      <div className="flex justify-center gap-36 py-6 text-[20px]">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
             className={`py-2 px-4 font-medium transition-all duration-200 ${
               activeTab === tab.id
-                ? 'border-b-2 border-blue-600 text-blue-600'
-                : 'text-gray-500 hover:text-blue-600'
+                ? 'border-b-2 dark:border-gray-300 border-gray-800 dark:text-gray-300 text-gray-800'
+                : 'border-b-2 border-transparent text-gray-500 hover:text-gray-400'
             }`}
           >
             {tab.label}
