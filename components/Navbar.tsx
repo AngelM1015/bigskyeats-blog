@@ -1,4 +1,6 @@
+import { MoonStar } from 'lucide-react'
 import Link from 'next/link'
+import ThemeToggle from './ThemeToggle'
 
 export const Navbar = () => {
   return (
@@ -20,6 +22,7 @@ export const Navbar = () => {
           F.A.Q
         </Link>
       </div>
+      <ThemeToggle />
     </nav>
   )
 }

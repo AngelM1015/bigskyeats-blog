@@ -26,6 +26,7 @@ import { KeyCapabilitiesSection } from 'components/KeyCapabilitiesSection'
 import { MainFeatureSection } from 'components/MainFeatureSection'
 import { Footer } from 'components/Footer'
 import { ScrollToTopButton } from 'components/ScrollToTopButton'
+
 interface PageProps extends SharedPageProps {
   posts: Post[]
   settings: Settings
