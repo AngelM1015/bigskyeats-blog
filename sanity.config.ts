@@ -15,7 +15,7 @@ import { previewDocumentNode } from 'plugins/previewPane'
 import { settingsPlugin, settingsStructure } from 'plugins/settings'
 import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
-import { structureTool } from 'sanity/structure'
+import { deskTool } from 'sanity/desk'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import authorType from 'schemas/author'
 import postType from 'schemas/post'
@@ -34,7 +34,7 @@ export default defineConfig({
     types: [authorType, postType, settingsType],
   },
   plugins: [
-    structureTool({
+    deskTool({
       structure: settingsStructure(settingsType),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode(),

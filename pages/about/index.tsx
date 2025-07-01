@@ -22,7 +22,7 @@ export default function AboutPage() {
         </p>
 
         <p className="mb-6 text-lg leading-relaxed">
-          Whether you're a home cook looking to spice up weeknight dinners, or
+          Whether you are a home cook looking to spice up weeknight dinners, or
           an adventurer craving campfire-ready meals, BigSkyEats brings you
           simple, rustic recipes that taste like home (wherever that may be).
         </p>

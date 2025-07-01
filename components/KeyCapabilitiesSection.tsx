@@ -20,7 +20,7 @@ const textTabContent = (
       </h2>
       <p className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] text-gray-700 dark:text-gray-300">
         Explore our innovative solutions designed to revolutionize your
-        experience and kickstart your team's success.
+        experience and kickstart your team is success.
       </p>
       <a
         href="http://"
