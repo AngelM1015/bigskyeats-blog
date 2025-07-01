@@ -32,7 +32,7 @@ export const HeroSection = () => {
           <img
             className="w-full h-auto rounded-md"
             alt="Demo"
-            src="/images/dummy.png"
+            src="/images/bigskyeats.png"
           />
         </div>
       </div>

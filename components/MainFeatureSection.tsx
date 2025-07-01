@@ -55,8 +55,8 @@ export const MainFeatureSection = () => {
         <div className="mt-8">
           <img
             className="w-full h-auto rounded-md"
-            src="/images/dummy.png"
-            alt="dummy"
+            src="/images/bigskyeats.png"
+            alt="bigskyeats"
           />
         </div>
       </div>

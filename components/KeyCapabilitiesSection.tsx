@@ -7,7 +7,7 @@ const textTabContent = (
       <img
         className="w-full h-auto rounded-lg"
         alt="Delivery system preview"
-        src="/images/dummy.png"
+        src="/images/bigskyeats.png"
         loading="lazy"
       />
     </div>
