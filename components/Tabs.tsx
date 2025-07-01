@@ -5,7 +5,7 @@ const Tabs = ({ tabs }) => {
 
   return (
     <div className="w-full mx-auto">
-      <div className="flex justify-center gap-36 py-6 text-[20px]">
+      <div className="flex justify-center gap-2 md:gap-36 py-6 text-[20px]">
         {tabs.map((tab) => (
           <button
             key={tab.id}
