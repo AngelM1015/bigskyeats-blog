@@ -45,13 +45,11 @@ export default function Page(props: PageProps) {
 
   return (
     <div className="bg-white dark:bg-[#09090B] text-black dark:text-white ">
-      <Navbar />
       <div className="px-24">
         <HeroSection />
         <KeyCapabilitiesSection />
         <MainFeatureSection />
         <ScrollToTopButton />
-        <Footer />
       </div>
       {/* <IndexPage posts={posts} settings={settings} /> */}
     </div>

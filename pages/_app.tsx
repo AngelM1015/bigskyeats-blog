@@ -4,6 +4,7 @@ import { VisualEditing } from '@sanity/visual-editing/next-pages-router'
 import { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
 import { ThemeProvider } from 'context/ThemeContext'
+import Layout from 'components/Layout'
 export interface SharedPageProps {
   draftMode: boolean
   token: string
@@ -18,14 +19,16 @@ export default function App({
   const { draftMode, token } = pageProps
   return (
     <ThemeProvider>
-      {draftMode ? (
-        <PreviewProvider token={token}>
+      <Layout>
+        {draftMode ? (
+          <PreviewProvider token={token}>
+            <Component {...pageProps} />
+          </PreviewProvider>
+        ) : (
           <Component {...pageProps} />
-        </PreviewProvider>
-      ) : (
-        <Component {...pageProps} />
-      )}
-      {draftMode && <VisualEditing />}
+        )}
+        {draftMode && <VisualEditing />}
+      </Layout>
     </ThemeProvider>
   )
 }
