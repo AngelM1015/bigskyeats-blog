@@ -1,5 +1,3 @@
-'use client'
-
 import { useState } from 'react'
 import { Menu, X, MoonStar } from 'lucide-react'
 import Link from 'next/link'
