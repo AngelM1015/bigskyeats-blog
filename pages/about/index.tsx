@@ -1,55 +1,89 @@
-import Head from 'next/head'
 import Image from 'next/image'
 
-export default function AboutPage() {
+const roles = ['customer', 'partner', 'restaurant_owner'] as const
+type UserRole = (typeof roles)[number]
+
+const featureContent: Record<
+  UserRole,
+  { title: string; image: string; points: string[] }
+> = {
+  customer: {
+    title: 'For Customers',
+    image: '/images/bigskyeats.png',
+    points: [
+      'Browse and order from local restaurants easily',
+      'Track your deliveries in real-time',
+      'Earn loyalty points and rewards',
+    ],
+  },
+  partner: {
+    title: 'For Partners',
+    image: '/images/bigskyresort.png',
+    points: [
+      'Grow your reach through our platform',
+      'Analytics and insights for performance',
+      'Flexible commission-based model',
+    ],
+  },
+  restaurant_owner: {
+    title: 'For Restaurant Owners',
+    image: '/images/bigskyshop.png',
+    points: [
+      'Seamless POS integration with ItsCheckedMate',
+      'Manage menus and orders with ease',
+      'Onboarding support and dedicated tools',
+    ],
+  },
+}
+
+const AboutPage = () => {
   return (
-    <div className="bg-white dark:bg-[#09090B] text-black dark:text-white ">
-      <Head>
-        <title>About Us | BigSkyEats</title>
-        <meta
-          name="description"
-          content="Learn more about BigSkyEats — your go-to blog for hearty meals, rustic recipes, and sky-high flavor inspiration."
-        />
-      </Head>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-white dark:bg-[#09090B] text-black dark:text-white">
+      <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
+        About Us
+      </h1>
+      <p className="text-base sm:text-lg text-center mb-14 max-w-2xl mx-auto">
+        BigSkyEats is an on-demand delivery system built for efficiency,
+        transparency, and growth — for locals, tourists, partners, and
+        restaurants alike.
+      </p>
 
-      <section className="max-w-4xl mx-auto px-6 py-12 ">
-        <h1 className="text-4xl font-bold mb-4">About BigSkyEats</h1>
+      {roles.map((role, index) => {
+        const { title, image, points } = featureContent[role]
+        const isEven = index % 2 === 0
 
-        <p className="mb-6 text-lg leading-relaxed">
-          Welcome to <strong>BigSkyEats</strong> — where the flavors are bold,
-          the recipes are hearty, and the inspiration comes straight from the
-          open skies of the American West.
-        </p>
-
-        <p className="mb-6 text-lg leading-relaxed">
-          Whether you are a home cook looking to spice up weeknight dinners, or
-          an adventurer craving campfire-ready meals, BigSkyEats brings you
-          simple, rustic recipes that taste like home (wherever that may be).
-        </p>
-
-        <p className="mb-6 text-lg leading-relaxed">
-          Our mission is to connect people through food — from smoky Montana BBQ
-          to farm-to-table comfort dishes. Each recipe is tested with love,
-          written with clarity, and infused with the soul of the outdoors.
-        </p>
-
-        <div className="my-8">
-          <Image
-            src="/images/bigskyeats.png" // make sure this image exists in /public/images
-            width={800}
-            height={500}
-            alt="Campfire cooking under the big sky"
-            className="rounded-lg shadow-md"
-          />
-        </div>
-
-        <p className="mb-6 text-lg leading-relaxed">
-          Thanks for stopping by — we’re glad you’re here. Pull up a chair, grab
-          your cast iron, and let’s cook something unforgettable.
-        </p>
-
-        <p className="text-base ">— The BigSkyEats Team</p>
-      </section>
+        return (
+          <div
+            key={role}
+            className={`flex flex-col lg:flex-row ${
+              !isEven ? 'lg:flex-row-reverse' : ''
+            } items-center gap-8 mb-16`}
+          >
+            <div className="w-full lg:w-1/2">
+              <Image
+                src={image}
+                alt={title}
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-xl shadow-md object-cover"
+                priority
+              />
+            </div>
+            <div className="w-full lg:w-1/2 px-2 sm:px-4 lg:px-8">
+              <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+                {title}
+              </h2>
+              <ul className="list-disc list-inside space-y-2 text-base sm:text-lg">
+                {points.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 }
+
+export default AboutPage
