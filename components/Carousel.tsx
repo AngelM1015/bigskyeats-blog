@@ -5,6 +5,8 @@ import { DotButton, PrevButton, NextButton } from './EmblaCarouselButtons'
 type CarouselItem = {
   title: string
   label: string
+  userType: string
+  description?: string
 }
 interface CarouselProps {
   slides: CarouselItem[]
@@ -14,6 +16,8 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([])
+  const [submittedEmails, setSubmittedEmails] = useState<Set<string>>(new Set())
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const scrollTo = useCallback(
     (index: number) => emblaApi?.scrollTo(index),
@@ -26,6 +30,43 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
     if (!emblaApi) return
     setSelectedIndex(emblaApi.selectedScrollSnap())
   }, [emblaApi])
+
+  const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>, slide: CarouselItem) => {
+    e.preventDefault()
+    
+    const formData = new FormData(e.currentTarget)
+    const email = formData.get('email') as string
+    
+    if (!email || submittedEmails.has(email)) return
+    
+    setIsSubmitting(true)
+    
+    try {
+      const response = await fetch('http://localhost:3000/api/v1/email_registrations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email_registration: {
+            email: email,
+            user_type: slide.userType,
+            source: 'blog_carousel',
+          }
+        })
+      })
+      
+      if (response.ok) {
+        setSubmittedEmails(prev => new Set(prev).add(email))
+        // Reset form
+        e.currentTarget.reset()
+      }
+    } catch (error) {
+      console.error('Failed to submit email registration:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   useEffect(() => {
     if (!emblaApi) return
@@ -45,24 +86,36 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
                   {slide.title}
                 </div>
                 <div className="text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 dark:text-gray-300">
-                  Become part of the thousands of locals working together and
-                  achieving their best with BigskyEats
+                  {slide.description || 'Become part of the thousands of locals working together and achieving their best with BigskyEats'}
                 </div>
 
-                <form className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
+                <form 
+                  className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8"
+                  onSubmit={(e) => handleEmailSubmit(e, slide)}
+                >
                   <input
                     type="email"
-                    name="localUser"
-                    id="localUser"
+                    name="email"
+                    id={`email-${index}`}
                     placeholder="Enter your email"
-                    className="border-2 border-black dark:border-gray-700 bg-white dark:bg-black p-2 rounded-lg w-full sm:w-80 focus:outline-none focus:ring-2 focus:ring-[#FF0B5C] dark:focus:ring-[#F09B00] transition"
+                    required
+                    disabled={isSubmitting}
+                    className="border-2 border-black dark:border-gray-700 bg-white dark:bg-black p-2 rounded-lg w-full sm:w-80 focus:outline-none focus:ring-2 focus:ring-[#FF0B5C] dark:focus:ring-[#F09B00] transition disabled:opacity-50"
                   />
-                  <input
+                  <button
                     type="submit"
-                    value={`Sign up as a ${slide.label}`}
-                    className="dark:bg-[#F09B00] bg-[#FF0B5C] rounded-lg px-6 py-2 text-[16px] font-semibold cursor-pointer hover:brightness-110 transition"
-                  />
+                    disabled={isSubmitting}
+                    className="dark:bg-[#F09B00] bg-[#FF0B5C] rounded-lg px-6 py-2 text-[16px] font-semibold cursor-pointer hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed text-white"
+                  >
+                    {isSubmitting ? 'Submitting...' : `Sign up as a ${slide.label}`}
+                  </button>
                 </form>
+                
+                {submittedEmails.size > 0 && (
+                  <div className="text-green-600 dark:text-green-400 text-sm mt-2">
+                    ✅ Thank you! Your registration has been submitted for admin approval.
+                  </div>
+                )}
               </div>
             </div>
           ))}
