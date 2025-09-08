@@ -25,6 +25,7 @@ This modern website features native Sanity Studio integration for real-time cont
 ## ✨ **Enterprise Marketing Features**
 
 ### **🎯 Content Management & SEO**
+
 - **Dynamic Content System**: Editable blog posts, restaurant spotlights, and marketing campaigns
 - **SEO Optimization**: Advanced meta tags, structured data, and search engine optimization
 - **Real-Time Content Updates**: Instant publishing without rebuilds via ISR (Incremental Static Regenration)
@@ -32,6 +33,7 @@ This modern website features native Sanity Studio integration for real-time cont
 - **Content Collaboration**: Real-time editing with fine-grained revision history
 
 ### **🌐 Enterprise Web Features**
+
 - **Performance Optimized**: Static generation with edge caching for sub-200ms load times
 - **Mobile-First Design**: Responsive design optimized for tourist and local engagement
 - **Lead Generation**: Advanced contact forms with CRM integration
@@ -39,6 +41,7 @@ This modern website features native Sanity Studio integration for real-time cont
 - **Marketing Automation**: Webhook-triggered content deployment and email campaigns
 
 ### **🔧 Technical Excellence**
+
 - **TypeScript Integration**: Type-safe development with comprehensive error handling
 - **Tailwind CSS**: Utility-first styling with custom BigSkyEats brand components
 - **Image Optimization**: On-demand image transformations and WebP delivery
@@ -65,14 +68,16 @@ This modern website features native Sanity Studio integration for real-time cont
 ## 🏗️ **Enterprise Architecture Overview**
 
 ### **🌐 Production Deployment**
-| **Marketing Website** | **Content Management Studio** |
-| ------------------- | ---------------------------- |
+
+| **Marketing Website**                    | **Content Management Studio**                          |
+| ---------------------------------------- | ------------------------------------------------------ |
 | [bigskyeats.com](https://bigskyeats.com) | [bigskyeats.com/studio](https://bigskyeats.com/studio) |
-| Enterprise-grade marketing platform | Real-time content management interface |
-| SEO-optimized, mobile-first design | Visual editing with live preview |
-| Lead generation and conversion tracking | Multi-user collaboration and workflows |
+| Enterprise-grade marketing platform      | Real-time content management interface                 |
+| SEO-optimized, mobile-first design       | Visual editing with live preview                       |
+| Lead generation and conversion tracking  | Multi-user collaboration and workflows                 |
 
 ### **🔧 Technology Stack Architecture**
+
 ```
 🌐 Next.js 14 Frontend (Vercel Edge)
     ↕️ (API Routes + SSG/ISR)

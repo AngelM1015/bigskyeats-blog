@@ -4,7 +4,9 @@ interface EmailRegistrationProps {
   onSubmit: (email: string, userType: string) => void
 }
 
-export default function EmailRegistration({ onSubmit }: EmailRegistrationProps) {
+export default function EmailRegistration({
+  onSubmit,
+}: EmailRegistrationProps) {
   const [email, setEmail] = useState('')
   const [userType, setUserType] = useState('customer')
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -15,23 +17,26 @@ export default function EmailRegistration({ onSubmit }: EmailRegistrationProps) 
     if (!email || !userType) return
 
     setIsSubmitting(true)
-    
+
     try {
       // Submit to Rails backend for admin approval
-      const response = await fetch('http://localhost:3000/api/v1/email_registrations', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        'http://localhost:3000/api/v1/email_registrations',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email_registration: {
+              email: email,
+              user_type: userType,
+              status: 'pending_approval',
+              source: 'blog_landing_page',
+            },
+          }),
         },
-        body: JSON.stringify({
-          email_registration: {
-            email: email,
-            user_type: userType,
-            status: 'pending_approval',
-            source: 'blog_landing_page'
-          }
-        })
-      })
+      )
 
       if (response.ok) {
         setSubmitted(true)
@@ -50,7 +55,10 @@ export default function EmailRegistration({ onSubmit }: EmailRegistrationProps) 
       <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
         <div className="text-green-800">
           <h3 className="text-lg font-semibold mb-2">Thank You!</h3>
-          <p>Your email has been submitted for approval. We'll contact you soon about joining BigSkyEats in Big Sky, MT!</p>
+          <p>
+            Your email has been submitted for approval. We&apos;ll contact you soon
+            about joining BigSkyEats in Big Sky, MT!
+          </p>
         </div>
       </div>
     )
@@ -63,13 +71,16 @@ export default function EmailRegistration({ onSubmit }: EmailRegistrationProps) 
           Join BigSkyEats
         </h3>
         <p className="text-gray-600">
-          Get early access to Big Sky's premier food delivery service
+          Get early access to Big Sky&apos;s premier food delivery service
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Email Address
           </label>
           <input
@@ -84,7 +95,10 @@ export default function EmailRegistration({ onSubmit }: EmailRegistrationProps) 
         </div>
 
         <div>
-          <label htmlFor="userType" className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor="userType"
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             I want to join as a:
           </label>
           <select
@@ -94,16 +108,23 @@ export default function EmailRegistration({ onSubmit }: EmailRegistrationProps) 
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           >
             <option value="customer">Customer (Order Food)</option>
-            <option value="restaurant_owner">Restaurant Owner (Partner with Us)</option>
-            <option value="local_customer">Local Resident (Non-Subscriber)</option>
+            <option value="restaurant_owner">
+              Restaurant Owner (Partner with Us)
+            </option>
+            <option value="local_customer">
+              Local Resident (Non-Subscriber)
+            </option>
           </select>
         </div>
 
         <div className="text-xs text-gray-500">
           <p>
-            {userType === 'customer' && 'Join as a customer to order from Big Sky\'s best restaurants with delivery to your location.'}
-            {userType === 'restaurant_owner' && 'Partner with BigSkyEats to expand your restaurant\'s reach in the Big Sky community.'}
-            {userType === 'local_customer' && 'Local Big Sky residents can use our service without a subscription (subject to admin approval).'}
+            {userType === 'customer' &&
+              "Join as a customer to order from Big Sky's best restaurants with delivery to your location."}
+            {userType === 'restaurant_owner' &&
+              "Partner with BigSkyEats to expand your restaurant's reach in the Big Sky community."}
+            {userType === 'local_customer' &&
+              'Local Big Sky residents can use our service without a subscription (subject to admin approval).'}
           </p>
         </div>
 
@@ -117,7 +138,10 @@ export default function EmailRegistration({ onSubmit }: EmailRegistrationProps) 
       </form>
 
       <div className="mt-4 text-center text-xs text-gray-500">
-        <p>All registrations require admin approval. We'll contact you within 24 hours.</p>
+        <p>
+          All registrations require admin approval. We&apos;ll contact you within 24
+          hours.
+        </p>
       </div>
     </div>
   )

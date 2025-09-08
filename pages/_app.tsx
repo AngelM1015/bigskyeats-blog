@@ -1,10 +1,10 @@
 import 'tailwindcss/tailwind.css'
 
 import { VisualEditing } from '@sanity/visual-editing/next-pages-router'
+import Layout from 'components/Layout'
+import { ThemeProvider } from 'context/ThemeContext'
 import { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
-import { ThemeProvider } from 'context/ThemeContext'
-import Layout from 'components/Layout'
 export interface SharedPageProps {
   draftMode: boolean
   token: string

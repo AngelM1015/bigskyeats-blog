@@ -1,5 +1,5 @@
-import * as motion from 'motion/react-client'
 import { MoveRight } from 'lucide-react'
+import * as motion from 'motion/react-client'
 import Link from 'next/link'
 
 const TabContent = ({ content }) => {

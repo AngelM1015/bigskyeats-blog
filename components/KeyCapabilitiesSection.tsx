@@ -6,7 +6,7 @@ const tabs = [
     label: 'Customer',
     content: {
       image: '/images/bigskyeats.png',
-      aboutText: 'Join Big Sky\'s food delivery community as a customer',
+      aboutText: "Join Big Sky's food delivery community as a customer",
     },
   },
   {

@@ -7,11 +7,14 @@ export const HeroSection = () => {
         {/* Left Content */}
         <div className="w-full lg:w-2/5 flex flex-col justify-between mb-8">
           <div className="font-montserrat font-extrabold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-tight text-black dark:text-white">
-            Big Sky, Montana's premier food delivery service for locals and visitors.
+            Big Sky, Montana&apos;s premier food delivery service for locals and
+            visitors.
           </div>
 
           <div className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] mt-4 text-gray-700 dark:text-gray-300">
-            Supporting local restaurants while delivering fresh, mountain cuisine directly to your door. Experience the taste of Big Sky with real-time tracking and community-first service.
+            Supporting local restaurants while delivering fresh, mountain
+            cuisine directly to your door. Experience the taste of Big Sky with
+            real-time tracking and community-first service.
           </div>
 
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6">

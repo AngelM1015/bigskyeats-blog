@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
-import { DotButton, PrevButton, NextButton } from './EmblaCarouselButtons'
+import React, { useCallback, useEffect, useState } from 'react'
+
+import { DotButton, NextButton,PrevButton } from './EmblaCarouselButtons'
 
 type CarouselItem = {
   title: string
@@ -31,33 +32,39 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
     setSelectedIndex(emblaApi.selectedScrollSnap())
   }, [emblaApi])
 
-  const handleEmailSubmit = async (e: React.FormEvent<HTMLFormElement>, slide: CarouselItem) => {
+  const handleEmailSubmit = async (
+    e: React.FormEvent<HTMLFormElement>,
+    slide: CarouselItem,
+  ) => {
     e.preventDefault()
-    
+
     const formData = new FormData(e.currentTarget)
     const email = formData.get('email') as string
-    
+
     if (!email || submittedEmails.has(email)) return
-    
+
     setIsSubmitting(true)
-    
+
     try {
-      const response = await fetch('http://localhost:3000/api/v1/email_registrations', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        'http://localhost:3000/api/v1/email_registrations',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email_registration: {
+              email: email,
+              user_type: slide.userType,
+              source: 'blog_carousel',
+            },
+          }),
         },
-        body: JSON.stringify({
-          email_registration: {
-            email: email,
-            user_type: slide.userType,
-            source: 'blog_carousel',
-          }
-        })
-      })
-      
+      )
+
       if (response.ok) {
-        setSubmittedEmails(prev => new Set(prev).add(email))
+        setSubmittedEmails((prev) => new Set(prev).add(email))
         // Reset form
         e.currentTarget.reset()
       }
@@ -86,10 +93,11 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
                   {slide.title}
                 </div>
                 <div className="text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 dark:text-gray-300">
-                  {slide.description || 'Become part of the thousands of locals working together and achieving their best with BigskyEats'}
+                  {slide.description ||
+                    'Become part of the thousands of locals working together and achieving their best with BigskyEats'}
                 </div>
 
-                <form 
+                <form
                   className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8"
                   onSubmit={(e) => handleEmailSubmit(e, slide)}
                 >
@@ -107,13 +115,16 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
                     disabled={isSubmitting}
                     className="dark:bg-[#F09B00] bg-[#FF0B5C] rounded-lg px-6 py-2 text-[16px] font-semibold cursor-pointer hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed text-white"
                   >
-                    {isSubmitting ? 'Submitting...' : `Sign up as a ${slide.label}`}
+                    {isSubmitting
+                      ? 'Submitting...'
+                      : `Sign up as a ${slide.label}`}
                   </button>
                 </form>
-                
+
                 {submittedEmails.size > 0 && (
                   <div className="text-green-600 dark:text-green-400 text-sm mt-2">
-                    ✅ Thank you! Your registration has been submitted for admin approval.
+                    ✅ Thank you! Your registration has been submitted for admin
+                    approval.
                   </div>
                 )}
               </div>

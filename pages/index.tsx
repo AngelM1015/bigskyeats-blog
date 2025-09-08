@@ -1,11 +1,15 @@
+import { Footer } from 'components/Footer'
+import { HeroSection } from 'components/HeroSection'
 import IndexPage from 'components/IndexPage'
+import { KeyCapabilitiesSection } from 'components/KeyCapabilitiesSection'
+import { MainFeatureSection } from 'components/MainFeatureSection'
+import { Navbar } from 'components/Navbar'
 import PreviewIndexPage from 'components/PreviewIndexPage'
+import { ScrollToTopButton } from 'components/ScrollToTopButton'
 import Tabs from 'components/Tabs'
 import { readToken } from 'lib/sanity.api'
 import { getAllPosts, getClient, getSettings } from 'lib/sanity.client'
 import { Post, Settings } from 'lib/sanity.queries'
-import { GetStaticProps } from 'next'
-import type { SharedPageProps } from 'pages/_app'
 import {
   ArrowUp,
   Facebook,
@@ -18,14 +22,10 @@ import {
   Twitter,
   Youtube,
 } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { GetStaticProps } from 'next'
 import Link from 'next/link'
-import { Navbar } from 'components/Navbar'
-import { HeroSection } from 'components/HeroSection'
-import { KeyCapabilitiesSection } from 'components/KeyCapabilitiesSection'
-import { MainFeatureSection } from 'components/MainFeatureSection'
-import { Footer } from 'components/Footer'
-import { ScrollToTopButton } from 'components/ScrollToTopButton'
+import type { SharedPageProps } from 'pages/_app'
+import { useEffect, useState } from 'react'
 
 interface PageProps extends SharedPageProps {
   posts: Post[]

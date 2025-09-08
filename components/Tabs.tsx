@@ -1,6 +1,7 @@
-import { useState } from 'react'
 import { AnimatePresence } from 'motion/react'
 import * as motion from 'motion/react-client'
+import { useState } from 'react'
+
 import TabContent from './TabContent'
 const Tabs = ({ tabs }) => {
   const [activeTab, setActiveTab] = useState(tabs[0]?.id)

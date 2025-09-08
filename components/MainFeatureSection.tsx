@@ -1,6 +1,6 @@
 import { Carousel } from 'components/Carousel'
-import { useRef } from 'react'
 import * as motion from 'motion/react-client'
+import { useRef } from 'react'
 
 export const MainFeatureSection = () => {
   const features = [
@@ -46,19 +46,19 @@ export const MainFeatureSection = () => {
       title: 'Join BigSkyEats as a Tourist!',
       label: 'Tourist Customer',
       userType: 'tourist_customer',
-      description: 'Perfect for visitors to Big Sky, MT'
+      description: 'Perfect for visitors to Big Sky, MT',
     },
     {
       title: 'Join our local community!',
       label: 'Local Customer',
       userType: 'local_customer',
-      description: 'For Big Sky residents (requires admin approval)'
+      description: 'For Big Sky residents (requires admin approval)',
     },
     {
       title: 'Partner with BigSkyEats!',
       label: 'Restaurant Owner',
       userType: 'restaurant_owner',
-      description: 'Expand your restaurant reach in Big Sky'
+      description: 'Expand your restaurant reach in Big Sky',
     },
   ]
   const targetRef = useRef<HTMLElement | null>(null)
@@ -113,7 +113,10 @@ export const MainFeatureSection = () => {
               Big Sky dining. Reimagined.
             </h2>
             <p className="text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 dark:text-gray-300 max-w-2xl py-6 sm:py-8">
-              Unlike corporate delivery services, BigSkyEats keeps everything local. We support Big Sky restaurants first, ensuring their success while providing the mountain community with fresh, reliable food delivery.
+              Unlike corporate delivery services, BigSkyEats keeps everything
+              local. We support Big Sky restaurants first, ensuring their
+              success while providing the mountain community with fresh,
+              reliable food delivery.
             </p>
           </div>
           <div className="w-full mx-auto mt-8 rounded-xl overflow-hidden shadow-2xl border-2  border-[#09090B]">
@@ -131,10 +134,13 @@ export const MainFeatureSection = () => {
       <div className="flex flex-col items-center">
         <div className="flex flex-col items-center text-center px-4 sm:px-8 md:px-12 xl:px-24 py-12 mx-auto">
           <div className="font-montserrat font-bold text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] max-w-3xl text-black dark:text-white leading-tight">
-            Empowering Big Sky's food community with technology that works for everyone.
+            Empowering Big Sky&apos;s food community with technology that works for
+            everyone.
           </div>
           <div className="text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 dark:text-gray-300 max-w-xl mt-6">
-            Our platform connects hungry locals and visitors with Big Sky's amazing restaurants, featuring powerful tools that benefit the entire mountain community.
+            Our platform connects hungry locals and visitors with Big Sky&apos;s
+            amazing restaurants, featuring powerful tools that benefit the
+            entire mountain community.
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 ">
