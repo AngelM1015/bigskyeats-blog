@@ -20,8 +20,11 @@ export default function EmailRegistration({
 
     try {
       // Submit to Rails backend for admin approval
-      const response = await fetch(
-        'http://localhost:3000/api/v1/email_registrations',
+      const apiUrl = process.env.NODE_ENV === 'production' 
+        ? 'https://bigskyeats.app/api/v1/email_registrations'
+        : 'http://localhost:3000/api/v1/email_registrations'
+      
+      const response = await fetch(apiUrl,
         {
           method: 'POST',
           headers: {

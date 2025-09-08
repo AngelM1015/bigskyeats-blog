@@ -1,14 +1,12 @@
-import { getClient } from 'lib/sanity.client'
-import { LiveQueryProvider } from 'next-sanity/preview'
-import { useMemo } from 'react'
+// Preview functionality temporarily disabled in next-sanity v10
+// TODO: Implement with @sanity/visual-editing when stable
 
 export default function PreviewProvider({
   children,
-  token,
 }: {
   children: React.ReactNode
-  token: string
+  token?: string
 }) {
-  const client = useMemo(() => getClient({ token }), [token])
-  return <LiveQueryProvider client={client}>{children}</LiveQueryProvider>
+  // Simplified provider that just passes through children
+  return <>{children}</>
 }

@@ -5,31 +5,17 @@ import {
   Settings,
   settingsQuery,
 } from 'lib/sanity.queries'
-import { useLiveQuery } from 'next-sanity/preview'
+// Preview functionality temporarily disabled in next-sanity v10
 
 export default function PreviewPostPage(props: PostPageProps) {
-  const [{ post: postPreview, morePosts }, loadingPost] = useLiveQuery<{
-    post: Post
-    morePosts: Post[]
-  }>(
-    { post: props.post, morePosts: props.morePosts },
-    postAndMoreStoriesQuery,
-    {
-      slug: props.post.slug,
-    },
-  )
-  const [settings, loadingSettings] = useLiveQuery<Settings>(
-    props.settings,
-    settingsQuery,
-  )
-
+  // Simplified preview that just uses static data
   return (
     <PostPage
       preview
-      loading={loadingPost || loadingSettings}
-      post={postPreview}
-      morePosts={morePosts}
-      settings={settings}
+      loading={false}
+      post={props.post}
+      morePosts={props.morePosts}
+      settings={props.settings}
     />
   )
 }
