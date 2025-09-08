@@ -85,8 +85,8 @@ export const MainFeatureSection = () => {
         <div className="w-full lg:w-2/3">
           <img
             className="w-full h-auto rounded-lg"
-            src="/images/journal.png"
-            alt="journal"
+            src="/images/temp-ill.gif"
+            alt="temp-ill"
           />
         </div>
       </div>
