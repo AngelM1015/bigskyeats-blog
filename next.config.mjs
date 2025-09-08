@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const config = {
+  // Fix workspace root detection for CI/CD
+  outputFileTracingRoot: __dirname,
   images: {
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
