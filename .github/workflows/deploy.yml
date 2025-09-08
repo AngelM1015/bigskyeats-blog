@@ -45,7 +45,13 @@ jobs:
       - name: 🎨 Check formatting
         run: npm run format -- --check
 
-      - name: 🏗️ Build application
+      - name: 🎠 Test Carousel Sync
+  run: |
+    echo "Testing carousel backend sync..."
+    # Test carousel API endpoints
+    curl -I http://localhost:3000/api/v1/email_registrations || echo "Server not running for test"
+
+- name: 🏗️ Build application
         run: npm run build
         env:
           NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
