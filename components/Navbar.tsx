@@ -1,6 +1,7 @@
-import { useState } from 'react'
-import { Menu, X, MoonStar } from 'lucide-react'
+import { Menu, MoonStar,X } from 'lucide-react'
 import Link from 'next/link'
+import { useState } from 'react'
+
 import ThemeToggle from './ThemeToggle'
 
 export const Navbar = () => {

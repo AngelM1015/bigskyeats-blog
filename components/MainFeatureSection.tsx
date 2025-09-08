@@ -1,58 +1,64 @@
 import { Carousel } from 'components/Carousel'
-import { useRef } from 'react'
 import * as motion from 'motion/react-client'
+import { useRef } from 'react'
 
 export const MainFeatureSection = () => {
   const features = [
     {
-      title: 'AI-Enhanced',
+      title: 'AI-Enhanced Ordering',
       description:
-        'Experience advanced operations automation with intelligent algorithms to boost efficiency and streamline each order.',
+        'Smart order management and route optimization ensures your Big Sky food delivery arrives fresh and fast, powered by intelligent algorithms.',
       icon: '🤖',
     },
     {
-      title: 'Usage Optimization',
+      title: 'Real-Time Tracking',
       description:
-        'Maintaining the life cycle of an order, live SMS/Push notifications on demand, and local helping build local growth.',
+        'Track your order from Big Sky restaurants in real-time with live SMS and push notifications, supporting local business growth.',
       icon: '📈',
     },
     {
-      title: 'Integrations',
+      title: 'Local Integration',
       description:
-        'We utilize google maps api, itscheckmate(logistics), github, Apple Play, etc.',
+        'Seamlessly integrated with Big Sky restaurants using Google Maps, local logistics partners, and mobile platforms for the best experience.',
       icon: '🔗',
     },
     {
-      title: 'Historical Data',
+      title: 'Local Data Security',
       description:
-        'Server is in-house here in the local town of Big Sky, with secure scrabbling raw data while maintaining association of given data to make informed decisions.',
+        'Your data stays secure on our Big Sky-based servers, ensuring privacy while providing valuable insights to improve local restaurant service.',
       icon: '📊',
     },
     {
-      title: '24/7 Support',
+      title: 'Community Support',
       description:
-        'Experience advanced operations automation with intelligent algorithms to boost efficiency and streamline each order.',
+        'Local customer service team available to help with orders, restaurant questions, and ensuring your Big Sky dining experience is perfect.',
       icon: '⏰',
     },
     {
-      title: 'Community Plugins',
+      title: 'Restaurant Partnerships',
       description:
-        'We are direct partnership with itscheckmate & local restaurant business orders in order to ensure smoothly food delivery process.',
+        'Direct partnerships with Big Sky restaurants and local logistics ensure smooth delivery while supporting the mountain community.',
       icon: '🧩',
     },
   ]
   const Carousels = [
     {
-      title: 'Join our local community of customers!',
-      label: 'Customer',
+      title: 'Join BigSkyEats as a Tourist!',
+      label: 'Tourist Customer',
+      userType: 'tourist_customer',
+      description: 'Perfect for visitors to Big Sky, MT',
     },
     {
-      title: 'Join our local community of Partners!',
-      label: 'Partner',
+      title: 'Join our local community!',
+      label: 'Local Customer',
+      userType: 'local_customer',
+      description: 'For Big Sky residents (requires admin approval)',
     },
     {
-      title: 'Join our local community of Restaurant Owners!',
+      title: 'Partner with BigSkyEats!',
       label: 'Restaurant Owner',
+      userType: 'restaurant_owner',
+      description: 'Expand your restaurant reach in Big Sky',
     },
   ]
   const targetRef = useRef<HTMLElement | null>(null)
@@ -67,11 +73,11 @@ export const MainFeatureSection = () => {
         {/* Left Content */}
         <div className="w-full lg:w-1/3 flex flex-col justify-between mb-8">
           <div className="font-montserrat font-bold text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] text-white dark:text-black leading-tight">
-            Flexible plans for locals, adapt to your needs.
+            Tailored for Big Sky locals and visitors alike.
           </div>
           <div className="text-[16px] sm:text-[18px] md:text-[20px] text-white dark:text-black mt-4">
-            Check out personalized pricing designed around your unique needs,
-            ensuring you get the best value.
+            Discover personalized delivery options designed for mountain living,
+            from quick village runs to resort deliveries.
           </div>
           <button
             onClick={scrollToSection}
@@ -104,13 +110,13 @@ export const MainFeatureSection = () => {
         <div className="px-4 sm:px-8 md:px-12 xl:px-24 py-12">
           <div className="flex flex-col items-center text-center">
             <h2 className="font-montserrat font-bold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[52px] text-black dark:text-white leading-snug">
-              Food delivery. Redefined.
+              Big Sky dining. Reimagined.
             </h2>
             <p className="text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 dark:text-gray-300 max-w-2xl py-6 sm:py-8">
-              Unlike other SaaS products (UberEats, DoorDash), we keep things
-              local and make sure we are always a benefit to restaurants in the
-              area — never a detriment. Their success is just as important as
-              ours.
+              Unlike corporate delivery services, BigSkyEats keeps everything
+              local. We support Big Sky restaurants first, ensuring their
+              success while providing the mountain community with fresh,
+              reliable food delivery.
             </p>
           </div>
           <div className="w-full mx-auto mt-8 rounded-xl overflow-hidden shadow-2xl border-2  border-[#09090B]">
@@ -128,12 +134,13 @@ export const MainFeatureSection = () => {
       <div className="flex flex-col items-center">
         <div className="flex flex-col items-center text-center px-4 sm:px-8 md:px-12 xl:px-24 py-12 mx-auto">
           <div className="font-montserrat font-bold text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] max-w-3xl text-black dark:text-white leading-tight">
-            Core capabilities and ways to accelerate innovation and growth to a
-            local driven community.
+            Empowering Big Sky&apos;s food community with technology that works for
+            everyone.
           </div>
           <div className="text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 dark:text-gray-300 max-w-xl mt-6">
-            Maximize your productivity and save time with our revolutionary
-            product, app/&amp; web portal as it has a powerful set of features.
+            Our platform connects hungry locals and visitors with Big Sky&apos;s
+            amazing restaurants, featuring powerful tools that benefit the
+            entire mountain community.
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 ">

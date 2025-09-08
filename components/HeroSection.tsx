@@ -7,18 +7,19 @@ export const HeroSection = () => {
         {/* Left Content */}
         <div className="w-full lg:w-2/5 flex flex-col justify-between mb-8">
           <div className="font-montserrat font-extrabold text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-tight text-black dark:text-white">
-            Finally, an on-demand delivery system for tourists & locals alike.
+            Big Sky, Montana&apos;s premier food delivery service for locals and
+            visitors.
           </div>
 
           <div className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[24px] mt-4 text-gray-700 dark:text-gray-300">
-            Maximize productivity and save time with our revolutionary approach.
-            Deliver improved performance and better team coordination. (Not
-            done)
+            Supporting local restaurants while delivering fresh, mountain
+            cuisine directly to your door. Experience the taste of Big Sky with
+            real-time tracking and community-first service.
           </div>
 
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
             <div className="p-2 px-4 text-center bg-[#FF0B5C] dark:bg-[#F09B00] rounded-md border-black border-2 transition-all duration-200 dark:hover:bg-white hover:bg-white dark:text-black font-semibold">
-              Open To
+              Order Now
             </div>
             <button className="flex items-center justify-center gap-2 border-black dark:border-white border-2 rounded-md p-2 px-4 dark:hover:bg-[#F09B00] hover:bg-[#FF0B5C] hover:text-white transition-all duration-200 text-sm sm:text-base">
               <Play className="w-5 h-5" />

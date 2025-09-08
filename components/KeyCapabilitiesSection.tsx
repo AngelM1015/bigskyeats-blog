@@ -6,7 +6,7 @@ const tabs = [
     label: 'Customer',
     content: {
       image: '/images/bigskyeats.png',
-      aboutText: 'Learn about becoming a Customer',
+      aboutText: "Join Big Sky's food delivery community as a customer",
     },
   },
   {
@@ -14,7 +14,7 @@ const tabs = [
     label: 'Partner',
     content: {
       image: '/images/bigskyshop.png',
-      aboutText: 'Learn about becoming a Partner',
+      aboutText: 'Become a BigSkyEats delivery partner in the mountains',
     },
   },
   {
@@ -22,7 +22,7 @@ const tabs = [
     label: 'Restaurant Owner',
     content: {
       image: '/images/bigskyresort.png',
-      aboutText: 'Learn about becoming a Restaurant Owner',
+      aboutText: 'Partner with BigSkyEats to grow your Big Sky restaurant',
     },
   },
 ]
