@@ -24,7 +24,7 @@ export const Footer = () => {
         {/* Right side - social icons */}
         <div className="flex justify-center md:justify-end gap-6 text-lg">
           <a
-            href="http://"
+            href="https://linkedin.com/company/bigskyeats"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -32,7 +32,7 @@ export const Footer = () => {
             <Linkedin className="hover:text-[#FF0B5C] dark:hover:text-[#F09B00]" />
           </a>
           <a
-            href="http://"
+            href="https://instagram.com/bigskyeats"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -40,7 +40,7 @@ export const Footer = () => {
             <Instagram className="hover:text-[#FF0B5C] dark:hover:text-[#F09B00]" />
           </a>
           <a
-            href="http://"
+            href="https://twitter.com/bigskyeats"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
@@ -48,7 +48,7 @@ export const Footer = () => {
             <Twitter className="hover:text-[#FF0B5C] dark:hover:text-[#F09B00]" />
           </a>
           <a
-            href="http://"
+            href="https://facebook.com/bigskyeats"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -56,7 +56,7 @@ export const Footer = () => {
             <Facebook className="hover:text-[#FF0B5C] dark:hover:text-[#F09B00]" />
           </a>
           <a
-            href="http://"
+            href="https://youtube.com/@bigskyeats"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube"

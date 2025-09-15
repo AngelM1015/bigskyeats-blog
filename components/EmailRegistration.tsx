@@ -22,7 +22,7 @@ export default function EmailRegistration({
       // Submit to Rails backend for admin approval
       const apiUrl = process.env.NODE_ENV === 'production' 
         ? 'https://bigskyeats.app/api/v1/email_registrations'
-        : 'http://localhost:3000/api/v1/email_registrations'
+        : 'http://bigskyeats.app/api/v1/email_registrations'
       
       const response = await fetch(apiUrl,
         {

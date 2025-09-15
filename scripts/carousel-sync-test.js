@@ -8,7 +8,7 @@ class BlogCarouselSync {
   constructor() {
     this.serverUrl = process.env.NODE_ENV === 'production' 
       ? 'https://bigskyeats.app'
-      : 'http://localhost:3000';
+      : 'http://bigskyeats.app';
   }
   
   async testCarouselSync() {

@@ -49,7 +49,7 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
       const response = await fetch(
         process.env.NODE_ENV === 'production' 
           ? 'https://bigskyeats.app/api/v1/email_registrations'
-          : 'http://localhost:3000/api/v1/email_registrations',
+          : 'http://bigskyeats.app/api/v1/email_registrations',
         {
           method: 'POST',
           headers: {

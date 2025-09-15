@@ -89,11 +89,41 @@ export const MainFeatureSection = () => {
 
         {/* Right Image */}
         <div className="w-full lg:w-2/3">
-          <img
-            className="w-full h-auto rounded-lg"
-            src="/images/temp-ill.gif"
-            alt="temp-ill"
-          />
+          <div 
+            className="w-full h-auto rounded-lg overflow-hidden"
+            style={{
+              backgroundColor: 'white',
+              padding: '.5px',
+              boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)'
+            }}
+          >
+            <div 
+              style={{
+                width: '100%',
+                height: 'auto',
+                overflow: 'hidden',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <img
+                src="/images/Animated_Illustration_Clean_Mobile.webp"
+                alt="Animated food delivery illustration"
+                style={{ 
+                  backgroundColor: 'white',
+                  border: 'none',
+                  outline: 'none',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  width: '100%',
+                  height: 'auto',
+                  transform: 'scaleX(1.45)',
+                  transformOrigin: 'center'
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
 

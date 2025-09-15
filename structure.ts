@@ -15,7 +15,7 @@ export const getDefaultDocumentNode: DefaultDocumentNodeResolver = (
             `${
               process.env.NODE_ENV === 'production'
                 ? 'https://bigskyeats.app'
-                : process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:3000'
+                : process.env.NEXT_PUBLIC_VERCEL_URL || 'http://bigskyeats.app'
             }/api/preview?slug=${doc?.slug?.current ?? ''}`,
 
           defaultSize: 'desktop',

@@ -1,10 +1,14 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
-  reactStrictMode: true,
-  experimental: {
-    // appDir: true,
-  },
+const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
   images: {
-    domains: ['avatars.githubusercontent.com', 'cdn.sanity.io'],
+    unoptimized: true
   },
+  env: {
+    NEXT_PUBLIC_SITE_URL: 'https://bigskyeats.com',
+    NEXT_PUBLIC_API_URL: 'https://bigskyeats.app/api/v1'
+  }
 }
+
+module.exports = nextConfig

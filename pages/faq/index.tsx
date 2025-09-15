@@ -5,27 +5,32 @@ export default function FaqPage() {
     {
       question: 'What is BigSkyEats?',
       answer:
-        'BigSkyEats is a food blog that shares rustic recipes, hearty meals, and outdoor-inspired cooking tips inspired by the spirit of the American West.',
+        'BigSkyEats is a comprehensive food delivery platform being built for Big Sky, Montana. We\'re developing innovative solutions to connect customers with local restaurants, offering convenient delivery services with real-time tracking and transparent pricing.',
     },
     {
-      question: 'Who writes the recipes?',
+      question: 'How will the delivery service work?',
       answer:
-        'Our team of passionate home cooks and food lovers create and test every recipe to ensure it’s approachable, delicious, and perfect for both everyday meals and special occasions.',
+        'Once launched, customers will be able to browse participating restaurants, place orders through our app or website, and track deliveries in real-time. Our local drivers will pick up orders and deliver them fresh to your door.',
     },
     {
-      question: 'Do you offer vegetarian or vegan recipes?',
+      question: 'What restaurants will be available on BigSkyEats?',
       answer:
-        "Yes! While we love classic comfort food, we also believe in variety. You'll find vegetarian, vegan, and gluten-free options throughout our blog.",
+        'We\'re building partnerships with local Big Sky restaurants including Thai Basil, BlindSide Burger, Wrap Shack, Pink G\'s, Café 191, and TipsUp. Our platform is designed to seamlessly integrate with popular POS systems like Zuppler, Square, Toast, and SpotOn.',
     },
     {
-      question: 'Can I submit a recipe or guest post?',
+      question: 'How much does delivery cost?',
       answer:
-        'We love collaborating! If you’re interested in contributing to BigSkyEats, send us a message via our Contact page with your idea.',
+        'Delivery fees vary based on distance and demand. We offer transparent pricing with no hidden fees. You can see the exact delivery cost before placing your order.',
     },
     {
-      question: 'Are the recipes beginner-friendly?',
+      question: 'What payment methods do you accept?',
       answer:
-        'Absolutely. Most of our recipes include step-by-step instructions, tips, and common ingredient alternatives so anyone can follow along.',
+        'We accept all major credit cards, debit cards, and digital payment methods through our secure Stripe integration. All payments are processed safely and securely.',
+    },
+    {
+      question: 'How can I become a delivery driver?',
+      answer:
+        'We\'re building our driver network and will be looking for reliable local drivers soon! You can express interest through our platform or contact us directly. We plan to offer competitive compensation and flexible scheduling for our driver partners.',
     },
   ]
 
@@ -35,7 +40,7 @@ export default function FaqPage() {
         <title>FAQ | BigSkyEats</title>
         <meta
           name="description"
-          content="Got questions about BigSkyEats? We’ve got answers. Find out more about our recipes, contributors, and cooking philosophy here."
+          content="Got questions about BigSkyEats delivery platform? We've got answers. Find out more about our upcoming delivery service, planned restaurant partnerships, and how to get involved here."
         />
       </Head>
 

@@ -29,7 +29,7 @@ const featureContent: Record<
     title: 'For Restaurant Owners',
     image: '/images/bigskyshop.png',
     points: [
-      'Seamless POS integration with ItsCheckedMate',
+                  'Seamless POS integration with Zuppler, Square, and Toast',
       'Manage menus and orders with ease',
       'Onboarding support and dedicated tools',
     ],
@@ -43,9 +43,9 @@ const AboutPage = () => {
         About Us
       </h1>
       <p className="text-base sm:text-lg text-center mb-14 max-w-2xl mx-auto">
-        BigSkyEats is an on-demand delivery system built for efficiency,
-        transparency, and growth — for locals, tourists, partners, and
-        restaurants alike.
+        BigSkyEats is an on-demand delivery system being built for efficiency,
+        transparency, and growth — designed to serve locals, tourists, partners, and
+        restaurants in Big Sky, Montana.
       </p>
 
       {roles.map((role, index) => {
