@@ -1,5 +1,6 @@
 import { MoveRight } from 'lucide-react'
 import * as motion from 'motion/react-client'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const TabContent = ({ content }) => {
@@ -8,10 +9,12 @@ const TabContent = ({ content }) => {
     <div className="flex flex-col lg:flex-row justify-between items-center gap-8 px-4 sm:px-8 lg:px-12 xl:px-24 py-12 ">
       {/* Image Section */}
       <div className="w-full lg:w-1/2">
-        <img
+        <Image
           className="w-full h-auto rounded-lg"
           alt="Delivery system preview"
           src={content.image}
+          width={600}
+          height={400}
           loading="lazy"
         />
       </div>

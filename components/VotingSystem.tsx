@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext,useEffect, useState } from 'react'
 import styled from 'styled-components'
+
 import { AuthContext } from '../contexts/AuthContext'
 import { canUserVote, getUserTypeDisplay } from '../lib/auth'
 

@@ -1,5 +1,6 @@
 import { Carousel } from 'components/Carousel'
 import * as motion from 'motion/react-client'
+import Image from 'next/image'
 import { useRef } from 'react'
 
 export const MainFeatureSection = () => {
@@ -107,9 +108,11 @@ export const MainFeatureSection = () => {
                 alignItems: 'center'
               }}
             >
-              <img
+              <Image
                 src="/images/Animated_Illustration_Clean_Mobile.webp"
                 alt="Animated food delivery illustration"
+                width={800}
+                height={600}
                 style={{ 
                   backgroundColor: 'white',
                   border: 'none',

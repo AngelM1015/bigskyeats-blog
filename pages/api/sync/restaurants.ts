@@ -1,5 +1,5 @@
-import { NextApiRequest, NextApiResponse } from 'next';
 import { getClient } from 'lib/sanity.client';
+import { NextApiRequest, NextApiResponse } from 'next';
 
 interface BigSkyEatsRestaurant {
   id: number;

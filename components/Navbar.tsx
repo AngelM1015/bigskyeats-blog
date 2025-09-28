@@ -1,9 +1,9 @@
-import { Menu, MoonStar, X, LogOut, User, Vote } from 'lucide-react'
+import { LogOut, Menu, MoonStar, User, Vote,X } from 'lucide-react'
 import Link from 'next/link'
-import { useState, useContext } from 'react'
 import { useRouter } from 'next/router'
-import { AuthContext } from '../contexts/AuthContext'
+import { useContext,useState } from 'react'
 
+import { AuthContext } from '../contexts/AuthContext'
 import ThemeToggle from './ThemeToggle'
 
 export const Navbar = () => {

@@ -1,6 +1,7 @@
-import React from 'react'
 import Head from 'next/head'
+import React from 'react'
 import styled from 'styled-components'
+
 import LoginForm from '../components/LoginForm'
 
 const PageContainer = styled.div`

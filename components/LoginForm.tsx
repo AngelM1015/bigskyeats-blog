@@ -1,6 +1,7 @@
-import React, { useState, useContext } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useContext,useState } from 'react'
+
 import { AuthContext } from '../contexts/AuthContext'
 import { loginUser } from '../lib/auth'
 
@@ -110,7 +111,7 @@ export default function LoginForm() {
       </form>
 
       <p className="text-center mt-6 text-gray-600 dark:text-gray-400">
-        Don't have an account?{' '}
+        Don&apos;t have an account?{' '}
         <Link href="/register" className="text-[#FF0B5C] dark:text-[#F09B00] hover:underline font-semibold">
           Register here
         </Link>

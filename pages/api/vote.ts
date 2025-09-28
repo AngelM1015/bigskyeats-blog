@@ -1,7 +1,8 @@
-import { NextApiRequest, NextApiResponse } from 'next'
 import { getClient } from 'lib/sanity.client'
+import { NextApiRequest, NextApiResponse } from 'next'
 import { groq } from 'next-sanity'
-import { validateToken, canUserVote } from '../../lib/auth'
+
+import { canUserVote,validateToken } from '../../lib/auth'
 
 // Rate limiting storage (in production, use Redis or database)
 const voteAttempts = new Map<string, { count: number; lastAttempt: number }>()

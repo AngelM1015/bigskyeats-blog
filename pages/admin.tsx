@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import Head from 'next/head'
-import Layout from 'components/Layout'
 import AdminDashboard from 'components/AdminDashboard'
+import Layout from 'components/Layout'
+import Head from 'next/head'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 const LoginContainer = styled.div`
@@ -89,7 +89,9 @@ export default function AdminPage() {
       if (response.ok) {
         setIsAuthenticated(true)
         // Store admin key in session storage for subsequent requests
-        sessionStorage.setItem('adminKey', adminKey)
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('adminKey', adminKey)
+        }
       } else {
         setError('Invalid admin key. Please try again.')
       }
@@ -101,13 +103,15 @@ export default function AdminPage() {
   }
 
   // Check if already authenticated on component mount
-  useState(() => {
-    const storedKey = sessionStorage.getItem('adminKey')
-    if (storedKey) {
-      setAdminKey(storedKey)
-      setIsAuthenticated(true)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedKey = sessionStorage.getItem('adminKey')
+      if (storedKey) {
+        setAdminKey(storedKey)
+        setIsAuthenticated(true)
+      }
     }
-  })
+  }, [])
 
   if (!isAuthenticated) {
     return (

@@ -1,4 +1,5 @@
 import { Play } from 'lucide-react'
+import Image from 'next/image'
 
 export const HeroSection = () => {
   return (
@@ -30,10 +31,12 @@ export const HeroSection = () => {
 
         {/* Right Image */}
         <div className="w-full lg:w-3/5">
-          <img
+          <Image
             className="w-full h-auto rounded-md"
             alt="Demo"
             src="/images/bigskyeats.png"
+            width={800}
+            height={600}
           />
         </div>
       </div>

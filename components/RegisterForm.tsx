@@ -1,6 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useContext, useEffect,useState } from 'react'
+
 import { AuthContext } from '../contexts/AuthContext'
 import { registerUser } from '../lib/auth'
 

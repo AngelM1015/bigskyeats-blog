@@ -1,12 +1,13 @@
-import { GetStaticProps } from 'next'
-import Head from 'next/head'
-import { useContext, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import { getClient } from 'lib/sanity.client'
-import { groq } from 'next-sanity'
 import Layout from 'components/Layout'
 import VotingSystem from 'components/VotingSystem'
+import { getClient } from 'lib/sanity.client'
+import { GetStaticProps } from 'next'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { groq } from 'next-sanity'
+import { useContext, useEffect } from 'react'
 import styled from 'styled-components'
+
 import { AuthContext } from '../contexts/AuthContext'
 
 const PageContainer = styled.div`

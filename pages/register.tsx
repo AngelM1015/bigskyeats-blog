@@ -1,6 +1,7 @@
-import React from 'react'
 import Head from 'next/head'
+import React from 'react'
 import styled from 'styled-components'
+
 import RegisterForm from '../components/RegisterForm'
 
 const PageContainer = styled.div`
