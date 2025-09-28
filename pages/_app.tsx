@@ -3,6 +3,7 @@ import 'tailwindcss/tailwind.css'
 import { VisualEditing } from '@sanity/visual-editing/next-pages-router'
 import Layout from 'components/Layout'
 import { ThemeProvider } from 'context/ThemeContext'
+import { AuthProvider } from 'contexts/AuthContext'
 import { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
 export interface SharedPageProps {
@@ -19,16 +20,18 @@ export default function App({
   const { draftMode, token } = pageProps
   return (
     <ThemeProvider>
-      <Layout>
-        {draftMode ? (
-          <PreviewProvider token={token}>
+      <AuthProvider>
+        <Layout>
+          {draftMode ? (
+            <PreviewProvider token={token}>
+              <Component {...pageProps} />
+            </PreviewProvider>
+          ) : (
             <Component {...pageProps} />
-          </PreviewProvider>
-        ) : (
-          <Component {...pageProps} />
-        )}
-        {draftMode && <VisualEditing />}
-      </Layout>
+          )}
+          {draftMode && <VisualEditing />}
+        </Layout>
+      </AuthProvider>
     </ThemeProvider>
   )
 }
