@@ -20,7 +20,7 @@ setInterval(() => {
 function isRateLimited(userId: string): boolean {
   const now = Date.now()
   const oneHour = 60 * 60 * 1000
-  const maxVotesPerHour = 10 // Allow 10 votes per hour per authenticated user
+  const maxVotesPerHour = 3 // Allow 3 votes per hour per authenticated user (small town appropriate)
   
   const attempts = voteAttempts.get(userId)
   
