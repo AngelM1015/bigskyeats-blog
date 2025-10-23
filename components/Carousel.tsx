@@ -2,6 +2,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import React, { useCallback, useEffect, useState } from 'react'
 
 import { DotButton, NextButton,PrevButton } from './EmblaCarouselButtons'
+import { GoogleAutoDetectSignup } from './GoogleAutoDetectSignup'
 
 type CarouselItem = {
   title: string
@@ -49,7 +50,7 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
       const response = await fetch(
         process.env.NODE_ENV === 'production' 
           ? 'https://bigskyeats.app/api/v1/email_registrations'
-          : 'http://bigskyeats.app/api/v1/email_registrations',
+          : 'http://localhost:3000/api/v1/email_registrations',
         {
           method: 'POST',
           headers: {
@@ -99,36 +100,13 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
                     'Become part of the thousands of locals working together and achieving their best with BigskyEats'}
                 </div>
 
-                <form
-                  className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8"
-                  onSubmit={(e) => handleEmailSubmit(e, slide)}
-                >
-                  <input
-                    type="email"
-                    name="email"
-                    id={`email-${index}`}
-                    placeholder="Enter your email"
-                    required
-                    disabled={isSubmitting}
-                    className="border-2 border-black dark:border-gray-700 bg-white dark:bg-black p-2 rounded-lg w-full sm:w-80 focus:outline-none focus:ring-2 focus:ring-[#FF0B5C] dark:focus:ring-[#F09B00] transition disabled:opacity-50"
-                  />
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="dark:bg-[#F09B00] bg-[#FF0B5C] rounded-lg px-6 py-2 text-[16px] font-semibold cursor-pointer hover:brightness-110 transition disabled:opacity-50 disabled:cursor-not-allowed text-white"
-                  >
-                    {isSubmitting
-                      ? 'Submitting...'
-                      : `Sign up as a ${slide.label}`}
-                  </button>
-                </form>
-
-                {submittedEmails.size > 0 && (
-                  <div className="text-green-600 dark:text-green-400 text-sm mt-2">
-                    ✅ Thank you! Your registration has been submitted for admin
-                    approval.
-                  </div>
-                )}
+                <GoogleAutoDetectSignup
+                  userType={slide.userType}
+                  userLabel={slide.label}
+                  onSuccess={() => {
+                    setSubmittedEmails((prev) => new Set(prev).add(`${slide.userType}-${index}`))
+                  }}
+                />
               </div>
             </div>
           ))}
@@ -136,9 +114,13 @@ export const Carousel: React.FC<CarouselProps> = ({ slides }) => {
       </div>
 
       {/* Buttons */}
-      <div className="absolute inset-0 flex justify-between items-center px-4">
-        <PrevButton onClick={scrollPrev} />
-        <NextButton onClick={scrollNext} />
+      <div className="absolute inset-0 flex justify-between items-center px-4 pointer-events-none">
+        <div className="pointer-events-auto">
+          <PrevButton onClick={scrollPrev} />
+        </div>
+        <div className="pointer-events-auto">
+          <NextButton onClick={scrollNext} />
+        </div>
       </div>
 
       {/* Dots */}

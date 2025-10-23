@@ -1,4 +1,3 @@
-import { Footer } from 'components/Footer'
 import { HeroSection } from 'components/HeroSection'
 import IndexPage from 'components/IndexPage'
 import { KeyCapabilitiesSection } from 'components/KeyCapabilitiesSection'

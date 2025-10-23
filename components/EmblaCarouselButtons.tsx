@@ -7,7 +7,7 @@ interface ButtonProps {
 export const PrevButton: React.FC<ButtonProps> = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="bg-black/40 hover:bg-black/80 border border-black dark:border-white p-2 rounded-full shadow transition"
+    className="bg-black/40 hover:bg-black/80 border border-black dark:border-white p-2 rounded-full shadow transition z-10"
     aria-label="Previous Slide"
   >
     <ChevronLeft />
@@ -17,7 +17,7 @@ export const PrevButton: React.FC<ButtonProps> = ({ onClick }) => (
 export const NextButton: React.FC<ButtonProps> = ({ onClick }) => (
   <button
     onClick={onClick}
-    className="bg-black/40  hover:bg-black/80  border  border-black dark:border-white  p-2 rounded-full shadow transition"
+    className="bg-black/40  hover:bg-black/80  border  border-black dark:border-white  p-2 rounded-full shadow transition z-10"
     aria-label="Next Slide"
   >
     <ChevronRight />
